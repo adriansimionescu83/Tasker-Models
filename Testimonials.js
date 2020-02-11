@@ -1,0 +1,28 @@
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+const TestimonialSchema = new Schema(
+    {
+        customer:{
+            type: Schema.Types.ObjectId, 
+            ref: 'customer',
+            required: true
+        }, 
+        worker:{
+            type: Schema.Types.ObjectId, 
+            ref: 'worker',
+            required: true
+        },
+        order:{
+            type: Schema.Types.ObjectId, 
+            ref: 'order',
+            required: true
+        },
+        date:{
+            type: Date.now
+        }, 
+    }
+)
+
+const testimonialModel = mongoose.model('testimonial', TestimonialSchema);
+module.exports = testimonialModel;
